@@ -11,7 +11,13 @@ namespace NewsFeedServices.Controllers
 {
     public class NewsController : ApiController
     {
-        INewsFeed _newsFeed;
+        #region " PRIVATE VARIABLE "
+
+        private readonly INewsFeed _newsFeed;
+
+        #endregion
+
+        #region " CONSTRUCTOR "
 
         public NewsController() :
             this(new NewsFeed())
@@ -22,6 +28,10 @@ namespace NewsFeedServices.Controllers
         {
             _newsFeed = newsFeed;
         }
+
+        #endregion
+
+        #region " API GET METHODS "
 
         /// <summary>
         /// It is fetch all the news for the given category in RSS format
@@ -56,5 +66,8 @@ namespace NewsFeedServices.Controllers
 
             return resp;
         }
+
+        #endregion
+
     }
 }

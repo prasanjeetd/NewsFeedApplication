@@ -10,12 +10,22 @@ namespace NewsFeedServices.Components
 {
     public class NewsFeed : INewsFeed
     {
+        #region  " PRIVATE VARAIBLE "
+
         NewsFeedEntities newsFeedContext;
+
+        #endregion
+
+        #region " CONSTRUCTOR "
 
         public NewsFeed()
         {
             newsFeedContext = new NewsFeedEntities();
         }
+
+        #endregion
+
+        #region " PUBLIC METHOD "
 
         public List<NewsDto> GetFeed(string category)
         {
@@ -35,5 +45,6 @@ namespace NewsFeedServices.Components
             return feed;
         }
 
+        #endregion
     }
 }
