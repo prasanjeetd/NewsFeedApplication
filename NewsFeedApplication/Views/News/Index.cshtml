@@ -16,14 +16,15 @@
     <table>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Category.CategoryName)
+               @* @Html.DisplayNameFor(model => model.Category.CategoryName)*@
+                Category
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Descripion)
-            </th>
+            </th>*@
 
             <th>Actions</th>
         </tr>
@@ -37,13 +38,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Title)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Descripion)
-                </td>
+                </td>*@
 
                 <td>
                     @Html.ActionLink("Edit", "Edit", new { id = item.NewsId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.NewsId }) |
+                    @*@Html.ActionLink("Details", "Details", new { id = item.NewsId }) |*@
                     @Html.ActionLink("Delete", "Delete", new { id = item.NewsId })
                 </td>
             </tr>
