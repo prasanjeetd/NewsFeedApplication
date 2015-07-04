@@ -6,7 +6,6 @@ using System.Web.Mvc;
 using WebMatrix.WebData;
 using NewsFeedApplication.Models;
 using System.Data.Entity.Migrations;
-using NewsFeedApplication.Migrations;
 
 namespace NewsFeedApplication.Filters
 {
@@ -38,12 +37,7 @@ namespace NewsFeedApplication.Filters
                             // Create the SimpleMembership database without Entity Framework migration schema
                             ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                         }
-
-                        
-
-                        //var configuration = new Configuration();
-                        //var migrator = new DbMigrator(configuration);
-                        //migrator.Update();
+                     
                     }
 
                 }

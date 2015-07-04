@@ -8,7 +8,6 @@ using System.Web.Mvc;
 using NewsFeedApplication.Models.Entities;
 using WebMatrix.WebData;
 using System.Web.Security;
-using RTE;
 
 namespace NewsFeedApplication.Controllers
 {
@@ -46,11 +45,6 @@ namespace NewsFeedApplication.Controllers
         public ActionResult Create()
         {
             ViewBag.CategoryId = new SelectList(db.Categories, "CategoryId", "CategoryName");
-
-            Editor Editor1 = new Editor(System.Web.HttpContext.Current, "Editor1");
-            Editor1.LoadFormData("Type here...");
-            Editor1.MvcInit();
-            ViewBag.Editor = Editor1.MvcGetString();
 
             return View();
         }
