@@ -1,0 +1,64 @@
+﻿@model NewsFeedApplication.Models.Entities.News
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>News</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Category.CategoryName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Category.CategoryName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descripion)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descripion)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedById)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedById)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CreatedOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CreatedOn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdatedBy)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdatedBy)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UpdatedOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UpdatedOn)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.NewsId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

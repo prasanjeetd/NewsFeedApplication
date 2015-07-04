@@ -1,0 +1,57 @@
+﻿@model IEnumerable<NewsFeedApplication.Models.Entities.News>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@if (Model.Count() > 0)
+{
+  
+    <table>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripion)
+            </th>
+
+            <th>Actions</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripion)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.NewsId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.NewsId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.NewsId })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <p>No News to display</p>
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e08d6cbc43c44f8eb80a9f3c2c09d4fd" Name="Diagram1" >
+        <EntityTypeShape EntityType="NewsFeedUsersModel.UserProfile" Width="1.5" PointX="11.326232788770568" PointY="9.04731084827674" />
+        <EntityTypeShape EntityType="NewsFeedUsersModel.webpages_Membership" Width="1.5" PointX="6.8847426562033327" PointY="24.458281826441308" />
+        <EntityTypeShape EntityType="NewsFeedUsersModel.webpages_OAuthMembership" Width="1.5" PointX="2.0564847449103762" PointY="22.765007431975103" />
+        <EntityTypeShape EntityType="NewsFeedUsersModel.webpages_Roles" Width="1.5" PointX="6.7462938943627737" PointY="7.3982025866388357" />
+        <AssociationConnector Association="NewsFeedUsersModel.webpages_UsersInRoles" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
