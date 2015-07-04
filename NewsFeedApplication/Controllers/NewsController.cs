@@ -105,7 +105,7 @@ namespace NewsFeedApplication.Controllers
         [Authorize]
         [HttpPost]
         [ValidateInput(false)]
-        //[ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "NewsId,CategoryId, Title, Descripion,IsPublished")]News news)
         {
             if (ModelState.IsValid)
@@ -115,7 +115,8 @@ namespace NewsFeedApplication.Controllers
                 dbNews.CategoryId = news.CategoryId;
                 dbNews.Title = news.Title;
                 dbNews.Descripion = news.Descripion;
-
+                dbNews.IsPublished = news.IsPublished;
+                
                 dbNews.UpdatedBy = (int)WebSecurity.CurrentUserId;
                 dbNews.UpdatedOn = DateTime.Now;
 
