@@ -1,10 +1,21 @@
 ﻿@model IEnumerable<NewsFeedApplication.Models.Entities.News>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "News";
 }
 
-<h2>Index</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+            </p>
+        </div>
+    </section>
+}
 
 <p>
     @Html.ActionLink("Create New", "Create")

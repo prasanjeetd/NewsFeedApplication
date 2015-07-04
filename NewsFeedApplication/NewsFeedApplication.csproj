@@ -223,6 +223,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bootsrap\css\bootstrap.css" />
+    <Content Include="Bootsrap\css\bootstrap.min.css" />
+    <Content Include="Bootsrap\css\small-business.css" />
+    <Content Include="Bootsrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Bootsrap\index.html" />
+    <Content Include="Bootsrap\js\bootstrap.js" />
+    <Content Include="Bootsrap\js\bootstrap.min.js" />
+    <Content Include="Bootsrap\js\jquery.js" />
     <Content Include="Content\js\fck\adapters\jquery.js" />
     <Content Include="Content\js\fck\build-config.js" />
     <Content Include="Content\js\fck\ckeditor.js" />
@@ -683,6 +691,12 @@
     <Content Include="Content\js\fck\samples\toolbarconfigurator\font\fontello.woff" />
     <Content Include="Content\js\fck\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
     <Content Include="Content\js\fck\skins\moono\readme.md" />
+    <Content Include="Bootsrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Bootsrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Bootsrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Bootsrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Bootsrap\LICENSE" />
+    <Content Include="Bootsrap\README.md" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />

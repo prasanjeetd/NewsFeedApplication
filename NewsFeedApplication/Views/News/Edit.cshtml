@@ -1,10 +1,21 @@
 ﻿@model NewsFeedApplication.Models.Entities.News
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit News";
 }
 
-<h2>Edit</h2>
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+            </p>
+        </div>
+    </section>
+}
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
@@ -40,7 +51,7 @@
         </div>
 
         <div class="editor-label">
-            @Html.LabelFor(model => model.IsPublished)
+            Publish
         </div>
         <div class="editor-field">
             @Html.CheckBoxFor(model => model.IsPublished)

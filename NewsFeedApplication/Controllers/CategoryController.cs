@@ -98,6 +98,7 @@ namespace NewsFeedApplication.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.DeleteError = "";
             return View(category);
         }
 
@@ -108,9 +109,18 @@ namespace NewsFeedApplication.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Category category = db.Categories.Find(id);
-            db.Categories.Remove(category);
-            db.SaveChanges();
+            try
+            {
+
+                Category category = db.Categories.Find(id);
+                db.Categories.Remove(category);
+                db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                ViewBag.DeleteError = "You cannot delete this category as it is used by the News";
+                return View();
+            }
             return RedirectToAction("Index");
         }
 

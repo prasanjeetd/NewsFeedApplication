@@ -23,6 +23,11 @@ namespace NewsFeedServices.Controllers
             _newsFeed = newsFeed;
         }
 
+        /// <summary>
+        /// It is fetch all the news for the given category in RSS format
+        /// </summary>
+        /// <param name="category">It is the type of News to be feed </param>
+        /// <returns>XML of News Feed </returns>
         [HttpGet]
         public HttpResponseMessage Rss(string category)
         {
@@ -35,6 +40,11 @@ namespace NewsFeedServices.Controllers
             return resp;
         }
 
+        /// <summary>
+        /// It is fetch all the news for the given category in REST format
+        /// </summary>
+        /// <param name="category">It is the type of News to be feed </param>
+        /// <returns>JSON of News Feed </returns>
         [HttpGet]
         public HttpResponseMessage Rest(string cat)
         {

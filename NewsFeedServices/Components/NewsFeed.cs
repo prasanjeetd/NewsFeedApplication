@@ -20,7 +20,7 @@ namespace NewsFeedServices.Components
         public List<NewsDto> GetFeed(string category)
         {
             var feed = newsFeedContext.News.Include(x => x.Category)
-                                .Where(x => x.IsPublished)
+                                .Where(x => x.Category.CategoryName == category && x.IsPublished)
                                 .OrderByDescending(x => x.PublishedDate)
                                 .Select(n => n).Take(5).AsEnumerable()
                                  .Select(n => new NewsDto
