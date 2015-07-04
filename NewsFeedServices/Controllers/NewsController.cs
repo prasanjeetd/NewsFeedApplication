@@ -11,17 +11,22 @@ namespace NewsFeedServices.Controllers
 {
     public class NewsController : ApiController
     {
-        NewsFeed newsFeed;
+        INewsFeed _newsFeed;
 
-        public NewsController()
+        public NewsController() :
+            this(new NewsFeed())
         {
-            newsFeed = new NewsFeed();
+        }
+
+        public NewsController(INewsFeed newsFeed)
+        {
+            _newsFeed = newsFeed;
         }
 
         [HttpGet]
         public HttpResponseMessage Rss(string category)
         {
-            List<NewsDto> news = newsFeed.GetFeed(category);
+            List<NewsDto> news = _newsFeed.GetFeed(category);
 
             //forcing to send back response in Xml format
             HttpResponseMessage resp = Request.CreateResponse<List<NewsDto>>(HttpStatusCode.OK, value: news,
@@ -33,7 +38,7 @@ namespace NewsFeedServices.Controllers
         [HttpGet]
         public HttpResponseMessage Rest(string cat)
         {
-            List<NewsDto> news = newsFeed.GetFeed(cat);
+            List<NewsDto> news = _newsFeed.GetFeed(cat);
 
             //forcing to send back response in Json format
             HttpResponseMessage resp = Request.CreateResponse<List<NewsDto>>(HttpStatusCode.OK, value: news,

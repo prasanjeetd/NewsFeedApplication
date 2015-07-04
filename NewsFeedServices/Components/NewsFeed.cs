@@ -8,7 +8,7 @@ using System.Data.Entity;
 
 namespace NewsFeedServices.Components
 {
-    public class NewsFeed
+    public class NewsFeed : INewsFeed
     {
         NewsFeedEntities newsFeedContext;
 
