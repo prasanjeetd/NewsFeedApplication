@@ -167,7 +167,6 @@
     <Compile Include="Controllers\Customer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Dtos\NewsDto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -11,13 +11,13 @@ namespace NewsFeedServices
         {
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 
             config.Routes.MapHttpRoute(
                name: "RestApi",
-               routeTemplate: "api/{controller}/{action}/{cat}",
+               routeTemplate: "{controller}/{action}/category/{cat}",
                defaults: new { controller = "News", action = "Rest" }
            );
 
