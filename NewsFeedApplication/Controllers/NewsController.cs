@@ -62,7 +62,7 @@ namespace NewsFeedApplication.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryId, Title, Descripion")]News news)
+        public ActionResult Create([Bind(Include = "CategoryId, Title, Descripion,IsPublished")]News news)
         {
             if (ModelState.IsValid)
             {
@@ -70,6 +70,10 @@ namespace NewsFeedApplication.Controllers
                 news.CreatedById = (int)WebSecurity.CurrentUserId;
 
                 news.CreatedOn = DateTime.Now;
+
+                if (news.IsPublished == true)
+                    news.PublishedDate = DateTime.Now;
+
                 db.News.Add(news);
 
                 db.SaveChanges();
@@ -100,14 +104,25 @@ namespace NewsFeedApplication.Controllers
 
         [Authorize]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(News news)
+        [ValidateInput(false)]
+        //[ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "NewsId,CategoryId, Title, Descripion,IsPublished")]News news)
         {
             if (ModelState.IsValid)
             {
-                news.UpdatedBy = (int)WebSecurity.CurrentUserId;
-                news.UpdatedOn = DateTime.Now;
-                db.Entry(news).State = EntityState.Modified;
+                News dbNews = db.News.Find(news.NewsId);
+
+                dbNews.CategoryId = news.CategoryId;
+                dbNews.Title = news.Title;
+                dbNews.Descripion = news.Descripion;
+
+                dbNews.UpdatedBy = (int)WebSecurity.CurrentUserId;
+                dbNews.UpdatedOn = DateTime.Now;
+
+                if (news.IsPublished == true)
+                    dbNews.PublishedDate = DateTime.Now;
+
+                //db.Entry(news).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

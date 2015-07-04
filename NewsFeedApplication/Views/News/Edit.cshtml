@@ -39,6 +39,12 @@
             @Html.ValidationMessageFor(model => model.Descripion)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsPublished)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsPublished)
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>

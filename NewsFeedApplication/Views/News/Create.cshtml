@@ -38,7 +38,13 @@
         <div class="editor-field">
             @Html.TextAreaFor(model => model.Descripion, new { @id = "editor" })
             @Html.ValidationMessageFor(model => model.Descripion)
-            @*@Html.Raw(ViewBag.Editor)*@
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsPublished)
+        </div>
+        <div class="editor-field">
+            @Html.CheckBoxFor(model => model.IsPublished)
         </div>
 
         <p>

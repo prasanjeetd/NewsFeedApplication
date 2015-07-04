@@ -32,6 +32,8 @@ namespace NewsFeedApplication.Models.Entities
         public Nullable<System.DateTime> CreatedOn { get; set; }
         public Nullable<int> UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedOn { get; set; }
+        public bool IsPublished { get; set; }
+        public Nullable<System.DateTime> PublishedDate { get; set; }
 
         public virtual Category Category { get; set; }
     }

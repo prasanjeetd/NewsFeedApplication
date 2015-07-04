@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NewsFeedModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="NewsFeedModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityContainer Name="NewsFeedModelStoreContainer">
           <EntitySet Name="Category" EntityType="NewsFeedModel.Store.Category" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="News" EntityType="NewsFeedModel.Store.News" store:Type="Tables" Schema="dbo" />
@@ -32,6 +32,8 @@
           <Property Name="CreatedOn" Type="datetime" />
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="UpdatedOn" Type="datetime" />
+          <Property Name="IsPublished" Type="bit" Nullable="false" />
+          <Property Name="PublishedDate" Type="datetime" />
         </EntityType>
         <Association Name="FK_News_Category">
           <End Role="Category" Type="NewsFeedModel.Store.Category" Multiplicity="0..1" />
@@ -45,8 +47,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NewsFeedModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -79,6 +80,8 @@
           <Property Name="UpdatedBy" Type="Int32" />
           <Property Name="UpdatedOn" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Category" Relationship="NewsFeedModel.FK_News_Category" FromRole="News" ToRole="Category" />
+          <Property Type="Boolean" Name="IsPublished" Nullable="false" />
+          <Property Type="DateTime" Name="PublishedDate" Precision="3" />
         </EntityType>
         <Association Name="FK_News_Category">
           <End Role="Category" Type="NewsFeedModel.Category" Multiplicity="0..1" />
@@ -109,6 +112,8 @@
           <EntitySetMapping Name="News">
             <EntityTypeMapping TypeName="NewsFeedModel.News">
               <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="PublishedDate" ColumnName="PublishedDate" />
+                <ScalarProperty Name="IsPublished" ColumnName="IsPublished" />
                 <ScalarProperty Name="NewsId" ColumnName="NewsId" />
                 <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
